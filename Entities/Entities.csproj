@@ -9,4 +9,8 @@
     <Folder Include="DTOs\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\FinalProject\Core\Core.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -9,6 +9,10 @@ namespace ConsoleUI
         static void Main()
         {
             CarTest();
+
+            BrandTest();
+
+            ColorTest();
         }
 
         private static void CarTest()
@@ -27,6 +31,30 @@ namespace ConsoleUI
                 Console.WriteLine(carDetail.Id +" - " +carDetail.BrandName+" - " +carDetail.ColorName+" -> " +carDetail.DailyPrice);
             }
 
+        }
+
+        private static void BrandTest()
+        {
+            var brandManager = new BrandManager(new EfBrandDal());
+
+            Console.WriteLine("----------Brands------------");
+
+            foreach (var brand in brandManager.GetAll().Data)
+            {
+                Console.WriteLine(brand.Id + " - " +brand.Name);
+            }
+            
+        }
+
+        private static void ColorTest()
+        {
+            var colorManager = new ColorManager(new EfColorDal());
+
+            Console.WriteLine("----------Colors------------");
+            foreach (var color in colorManager.GetAll().Data)
+            {
+                Console.WriteLine(color.Id + " - " + color.Name);
+            }
         }
     }
 }
